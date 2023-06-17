@@ -94,6 +94,7 @@ a:hover {
     width: 100%;
     max-width: 250px;
     max-height: 181.5px;
+    border: none;
   }
 }
 .main .background {
@@ -198,6 +199,15 @@ a:hover {
   }
   .main .navbar .coli {
     height: 100% !important;
+  }
+  .main .navbar .coli.open {
+    flex: 10;
+    transform: scale(2);
+    background-color: linear-gradient(to right, white, transparent, white);
+    border: 1px solid white;
+  }
+  .main .navbar .coli.open > a {
+    transform: scale(1);
   }
   .main .navbar .coli:not(:first-child) {
     border: none;

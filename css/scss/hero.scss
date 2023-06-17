@@ -121,12 +121,22 @@
 
          .coli {
             height: 100% !important;
+            &.open {
+               flex: 10;
+               transform: scale(2);
+               background-color: linear-gradient(to right, white, transparent, white);
+               border: 1px solid $white;
+   
+               &>a {
+                  transform: scale(1);
+               }
+   
+            }
 
             &:not(:first-child) {
-
                border: none;
-
             }
+            
 
             &:not(:last-child) {
                border-bottom: 2.5px solid $white;
