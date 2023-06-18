@@ -141,21 +141,61 @@
 }
 
 section {
+   display: none;
+   opacity: 0;
    position: absolute;
-   top:15%; left:5%;
+   top: 15%;
+   left: 5%;
    height: 70vh;
    width: 90vw;
    z-index: 10;
-   background-color: $black;
-   border: 1px solid red;
+   background-color: transparent;
+   border: none;
+   
 }
-.about {
-   .categories {
 
-      .category-list {
+.about {
+   &.show {
+      display: block;
+      opacity: 1;
+      transition: opacity 1s;
+   }
+
+   &__title {
+      text-align: end;
+   }
+
+   .categories {
+      height: 100%;
+      border-right: 2.5px solid $white;
+
+      &-list {
          list-style: none;
+         text-transform: uppercase;
+         gap: 15px
       }
+
+      &-item {
+         text-align: end;
+      }
+   }
+
+   .span-wrapper {
+      max-height: 55vh;
+      overflow-y: scroll;
       
+      /* Цвет скроллбара */
+      &::-webkit-scrollbar {
+         width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+         background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background-color: #888888;
+         height: 50px; /* Высота ползунка */
+      }
    }
 }
 
