@@ -140,6 +140,24 @@
    }
 }
 
+section {
+   position: absolute;
+   top:15%; left:5%;
+   height: 70vh;
+   width: 90vw;
+   z-index: 10;
+   background-color: $black;
+   border: 1px solid red;
+}
+.about {
+   .categories {
+
+      .category-list {
+         list-style: none;
+      }
+      
+   }
+}
 
 @media (max-width: 998px) {
 
@@ -161,15 +179,11 @@
             transform: scale(2);
             background-color: linear-gradient(to right, white, transparent, white);
             border: 1px solid $white;
-
-
-
          }
 
          &:not(:first-child) {
             border: none;
          }
-
 
          &:not(:last-child) {
             border-bottom: 2.5px solid $white;

@@ -3,14 +3,17 @@ $(document).ready(function () {
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
 
-   $(window).on('resize', function () {
-      if ($(window).width() > 998) {
-         const columnWidth = column.outerWidth();
-         header.width(columnWidth - 1);
-      } else {
-         header.css('width', '');
-      }
-   }).trigger('resize');
+   function resizer() {
+      $(window).on('resize', function () {
+         if ($(window).width() > 998) {
+            const columnWidth = column.outerWidth();
+            header.width(columnWidth - 1);
+         } else {
+            header.css('width', '');
+         }
+      }).trigger('resize');
+   }
+   resizer();
 
    $(".column-link").click(function (event) {
       event.preventDefault();
@@ -20,7 +23,7 @@ $(document).ready(function () {
 
       if (clickedColumn.hasClass("open")) {
          navbarBtns.show().stop().animate({ right: '0%' }, 1000);
-         navbarBtns.css('display', 'flex'); 
+         navbarBtns.css('display', 'flex');
          $(".coli").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
       } else {

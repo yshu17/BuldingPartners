@@ -43,7 +43,7 @@ h4 {
 }
 
 section {
-  padding: 70px 0 0;
+  padding: 0;
 }
 
 a {
@@ -67,7 +67,7 @@ a:hover {
   top: 0;
   left: auto;
   right: auto;
-  max-height: 180px;
+  max-height: 125px;
   height: 100%;
   border-bottom: 2.5px solid white;
   border-right: 2.5px solid white;
@@ -219,6 +219,21 @@ a:hover {
 }
 .navbar .column-link:hover:before {
   width: 100%;
+}
+
+section {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  height: 70vh;
+  width: 90vw;
+  z-index: 10;
+  background-color: #212121;
+  border: 1px solid red;
+}
+
+.about .categories .category-list {
+  list-style: none;
 }
 
 @media (max-width: 998px) {
