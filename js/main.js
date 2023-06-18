@@ -1,7 +1,10 @@
 $(document).ready(function () {
+
+
    const column = $('.coli:nth-child(1)');
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
+   const sectionAbout = $('.about');
 
    function resizer() {
       $(window).on('resize', function () {
@@ -26,6 +29,19 @@ $(document).ready(function () {
          navbarBtns.css('display', 'flex');
          $(".coli").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
+
+         // Плавное появление блока "About" посередине экрана
+         sectionAbout.css({
+            display: 'block',
+            opacity: 0,
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+         }).animate({
+            opacity: 1
+         }, 1000);
+         /////////////////////////////////////////////////////
+
       } else {
          navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
             $(this).hide();
@@ -36,6 +52,15 @@ $(document).ready(function () {
 
    $(".main-page").click(function (event) {
       event.preventDefault();
+
+      // Плавное исчезновение блока "About"
+      sectionAbout.animate({
+         opacity: 0
+      }, 500, function () {
+         $(this).hide();
+      });
+      /////////////////////////////////////////////////////
+      
       $(".coli").removeClass("open").removeClass("hidden");
       navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
          $(this).hide();
