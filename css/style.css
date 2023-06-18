@@ -97,7 +97,7 @@ a:hover {
     border: none;
   }
 }
-.main .background {
+.background {
   position: fixed;
   z-index: -1;
   top: 0;
@@ -108,16 +108,44 @@ a:hover {
   width: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.85);
+  filter: brightness(0.75);
 }
-.main .navbar {
+
+.navbar {
   text-align: center;
   text-transform: uppercase;
+  position: relative;
 }
-.main .navbar__inner {
+.navbar__inner {
   display: flex;
 }
-.main .navbar .coli {
+.navbar__btn {
+  position: absolute;
+  padding: 30px 0px;
+  right: -100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__btn:not(:last-child) {
+  top: 0;
+}
+.navbar__btn:last-child {
+  bottom: 0;
+  right: -100%;
+}
+.navbar__btn.animate-in {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.navbar__btn.animate-out {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.navbar__btn .bi-caret-left {
+  font-size: 48px;
+}
+.navbar .coli {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,24 +154,24 @@ a:hover {
   transition: all 1.5s;
   will-change: transition;
 }
-.main .navbar .coli.open {
+.navbar .coli.open {
   flex: 10;
   transform: scale(4);
   background-color: linear-gradient(to right, white, transparent, white);
   border: 1px solid white;
 }
-.main .navbar .coli.open > a {
-  transform: scale(0.3);
+.navbar .coli.open > a {
+  display: none;
 }
-.main .navbar .coli.hidden {
+.navbar .coli.hidden {
   opacity: 0;
   transition-duration: 0.3s;
   /* Укажите желаемую скорость анимации */
 }
-.main .navbar .coli:not(:first-child) {
+.navbar .coli:not(:first-child) {
   border-left: 2.5px solid white;
 }
-.main .navbar .column-link {
+.navbar .column-link {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   color: white;
@@ -154,7 +182,7 @@ a:hover {
   z-index: 1;
   will-change: transition;
 }
-.main .navbar .column-link:after {
+.navbar .column-link:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -165,7 +193,7 @@ a:hover {
   border-radius: 10rem;
   z-index: -2;
 }
-.main .navbar .column-link:before {
+.navbar .column-link:before {
   content: "";
   position: absolute;
   top: 35%;
@@ -176,43 +204,40 @@ a:hover {
   transition: all 0.6s;
   z-index: -1;
 }
-.main .navbar .column-link.animate-height:before {
+.navbar .column-link.animate-height:before {
   top: 0;
   height: 100%;
 }
-.main .navbar .column-link:hover {
+.navbar .column-link:hover {
   color: white;
 }
-.main .navbar .column-link:hover:before {
+.navbar .column-link:hover:before {
   width: 100%;
 }
 
 @media (max-width: 998px) {
-  .main .navbar {
+  .navbar {
     height: 100vh;
   }
-  .main .navbar__inner {
+  .navbar__inner {
     height: 100%;
     flex-direction: column;
     justify-content: center;
     align-content: center;
   }
-  .main .navbar .coli {
+  .navbar .coli {
     height: 100% !important;
   }
-  .main .navbar .coli.open {
+  .navbar .coli.open {
     flex: 10;
     transform: scale(2);
     background-color: linear-gradient(to right, white, transparent, white);
     border: 1px solid white;
   }
-  .main .navbar .coli.open > a {
-    transform: scale(1);
-  }
-  .main .navbar .coli:not(:first-child) {
+  .navbar .coli:not(:first-child) {
     border: none;
   }
-  .main .navbar .coli:not(:last-child) {
+  .navbar .coli:not(:last-child) {
     border-bottom: 2.5px solid white;
   }
 }
