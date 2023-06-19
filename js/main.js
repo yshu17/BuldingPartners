@@ -1,5 +1,5 @@
 $(document).ready(function () {
-   const column = $('.coli:nth-child(1)');
+   const column = $('.column:nth-child(1)');
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
    const section = $('.section');
@@ -25,14 +25,14 @@ $(document).ready(function () {
 
    $(".column-link").click(function (event) {
       event.preventDefault();
-      var clickedColumn = $(this).closest(".coli");
+      var clickedColumn = $(this).closest(".column");
       clickedColumn.toggleClass("open");
-      $(".coli").not(clickedColumn).removeClass("open");
+      $(".column").not(clickedColumn).removeClass("open");
 
       if (clickedColumn.hasClass("open")) {
          navbarBtns.show().stop().animate({ right: '0%' }, 1000);
          navbarBtns.css('display', 'flex');
-         $(".coli").not(clickedColumn).addClass("hidden");
+         $(".column").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
 
          var target = clickedColumn.data("target");
@@ -58,7 +58,7 @@ $(document).ready(function () {
          navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
             $(this).hide();
          });
-         $(".coli").removeClass("hidden");
+         $(".column").removeClass("hidden");
          section.removeClass('active').stop().animate({ opacity: 0 }, 500, function () {
             $(this).hide();
          });
@@ -70,7 +70,7 @@ $(document).ready(function () {
    $(".main-page").click(function (event) {
       event.preventDefault();
 
-      $(".coli").removeClass("open").removeClass("hidden");
+      $(".column").removeClass("open").removeClass("hidden");
       navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
          $(this).hide();
       });
@@ -97,7 +97,7 @@ $(document).ready(function () {
    $(".categories-item a").click(function (event) {
       event.preventDefault();
       var practiceTitle = $(".practice__title");
-      var contentWrapper = $(".span-wrapper");
+      var contentWrapper = $(".content-wrapper");
       var categoryName = $(this).text(); // Получить текст названия категории
       var categoryContent = $(this).siblings("span").html(); // Получить содержимое categories-item
 

@@ -150,7 +150,7 @@ a:hover {
 .navbar__btn .bi-caret-left {
   font-size: 48px;
 }
-.navbar .coli {
+.navbar .column {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,23 +159,6 @@ a:hover {
   flex: 1;
   transition: all 1.5s;
   will-change: transition;
-}
-.navbar .coli.open {
-  flex: 10;
-  transform: scale(4);
-  background-color: linear-gradient(to right, white, transparent, white);
-  border: 1px solid white;
-}
-.navbar .coli.open > a {
-  display: none;
-}
-.navbar .coli.hidden {
-  opacity: 0;
-  transition-duration: 0.3s;
-  /* Укажите желаемую скорость анимации */
-}
-.navbar .coli:not(:first-child) {
-  border-left: 2.5px solid white;
 }
 .navbar .column-link {
   width: 100%;
@@ -221,6 +204,23 @@ a:hover {
 .navbar .column-link:hover:before {
   width: 100%;
 }
+.navbar .column.open {
+  flex: 10;
+  transform: scale(4);
+  background-color: linear-gradient(to right, white, transparent, white);
+  border: 1px solid white;
+}
+.navbar .column.open > a {
+  display: none;
+}
+.navbar .column.hidden {
+  opacity: 0;
+  transition-duration: 0.3s;
+  /* Укажите желаемую скорость анимации */
+}
+.navbar .column:not(:first-child) {
+  border-left: 2.5px solid white;
+}
 
 section {
   display: none;
@@ -253,20 +253,21 @@ section {
 .practice .categories-item {
   text-align: end;
 }
-.practice .span-wrapper {
+.practice .content-wrapper {
   max-height: 55vh;
   overflow-y: scroll;
   /* Цвет скроллбара */
 }
-.practice .span-wrapper::-webkit-scrollbar {
+.practice .content-wrapper::-webkit-scrollbar {
   width: 6px;
 }
-.practice .span-wrapper::-webkit-scrollbar-track {
+.practice .content-wrapper::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.practice .span-wrapper::-webkit-scrollbar-thumb {
+.practice .content-wrapper::-webkit-scrollbar-thumb {
   background-color: #888888;
-  height: 50px; /* Высота ползунка */
+  height: 50px;
+  /* Высота ползунка */
 }
 .practice .categories-item {
   transition: transform 0.6s ease;
@@ -287,19 +288,19 @@ section {
     justify-content: center;
     align-content: center;
   }
-  .navbar .coli {
+  .navbar .column {
     height: 100% !important;
   }
-  .navbar .coli.open {
+  .navbar .column.open {
     flex: 10;
     transform: scale(2);
     background-color: linear-gradient(to right, white, transparent, white);
     border: 1px solid white;
   }
-  .navbar .coli:not(:first-child) {
+  .navbar .column:not(:first-child) {
     border: none;
   }
-  .navbar .coli:not(:last-child) {
+  .navbar .column:not(:last-child) {
     border-bottom: 2.5px solid white;
   }
 }
