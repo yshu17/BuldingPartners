@@ -2,11 +2,6 @@ $(document).ready(function () {
    const column = $('.coli:nth-child(1)');
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
-   const sectionAbout = $('.about');
-   const sectionPractice = $('.practice');
-   const sectionClients = $('.clients');
-   const sectionCareer = $('.career');
-   const sectionContacts = $('.contacts');
    const section = $('.section');
 
    function resizer() {
@@ -21,6 +16,13 @@ $(document).ready(function () {
    }
    resizer();
 
+   function showSection(sectionClass) {
+      section.removeClass('active').stop().animate({ opacity: 0 }, 300, function () {
+         $(this).hide();
+      });
+      $(sectionClass).show().stop().animate({ opacity: 1 }, 1000).addClass('active');
+   }
+
    $(".column-link").click(function (event) {
       event.preventDefault();
       var clickedColumn = $(this).closest(".coli");
@@ -33,39 +35,44 @@ $(document).ready(function () {
          $(".coli").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
 
-         // Плавное появление блока "About" посередине экрана
-         sectionAbout.css({
-            display: 'block',
-            opacity: 0,
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-         });
+         var target = clickedColumn.data("target");
 
-         section.animate({
-            opacity: 1
-         }, 1000);
-
+         switch (target) {
+            case ".about":
+               showSection('.about');
+               break;
+            case ".practice":
+               showSection('.practice');
+               break;
+            case ".clients":
+               showSection('.clients');
+               break;
+            case ".career":
+               showSection('.career');
+               break;
+            case ".contacts":
+               showSection('.contacts');
+               break;
+         }
       } else {
          navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
             $(this).hide();
          });
          $(".coli").removeClass("hidden");
+         section.removeClass('active').stop().animate({ opacity: 0 }, 500, function () {
+            $(this).hide();
+         });
       }
    });
 
    $(".main-page").click(function (event) {
       event.preventDefault();
 
-      // Плавное исчезновение блока "About"
-      section.animate({
-         opacity: 0
-      }, 500, function () {
-         $(this).hide();
-      });
-
       $(".coli").removeClass("open").removeClass("hidden");
       navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
+         $(this).hide();
+      });
+      section.stop().animate({ opacity: 0 }, 500, function () {
          $(this).hide();
       });
    });
@@ -94,23 +101,14 @@ $(document).ready(function () {
 
       $(this).parent().addClass("active").siblings().removeClass("active");
       // Плавное исчезновение текущего текста заголовка и содержимого
-      aboutTitle.animate({
-         opacity: 0
-      }, 300, function () {
+      aboutTitle.stop().animate({ opacity: 0 }, 300, function () {
          aboutTitle.text(categoryName);
-         aboutTitle.animate({
-            opacity: 1
-         }, 300);
+         aboutTitle.animate({ opacity: 1 }, 300);
       });
 
-      contentWrapper.animate({
-         opacity: 0
-      }, 300, function () {
-         // $(".categories-item").removeClass("active");
+      contentWrapper.stop().animate({ opacity: 0 }, 300, function () {
          contentWrapper.html(categoryContent);
-         contentWrapper.animate({
-            opacity: 1
-         }, 300);
+         contentWrapper.animate({ opacity: 1 }, 300);
       });
    });
 });
