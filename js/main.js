@@ -1,10 +1,13 @@
 $(document).ready(function () {
-
-
    const column = $('.coli:nth-child(1)');
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
    const sectionAbout = $('.about');
+   const sectionPractice = $('.practice');
+   const sectionClients = $('.clients');
+   const sectionCareer = $('.career');
+   const sectionContacts = $('.contacts');
+   const section = $('.section');
 
    function resizer() {
       $(window).on('resize', function () {
@@ -37,10 +40,11 @@ $(document).ready(function () {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
-         }).animate({
+         });
+
+         section.animate({
             opacity: 1
          }, 1000);
-         /////////////////////////////////////////////////////
 
       } else {
          navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
@@ -54,13 +58,12 @@ $(document).ready(function () {
       event.preventDefault();
 
       // Плавное исчезновение блока "About"
-      sectionAbout.animate({
+      section.animate({
          opacity: 0
       }, 500, function () {
          $(this).hide();
       });
-      /////////////////////////////////////////////////////
-      
+
       $(".coli").removeClass("open").removeClass("hidden");
       navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
          $(this).hide();
@@ -81,4 +84,33 @@ $(document).ready(function () {
          }, 600);
       }
    );
+
+   $(".categories-item a").click(function (event) {
+      event.preventDefault();
+      var aboutTitle = $(".about__title");
+      var contentWrapper = $(".span-wrapper");
+      var categoryName = $(this).text(); // Получить текст названия категории
+      var categoryContent = $(this).siblings("span").html(); // Получить содержимое categories-item
+
+      $(this).parent().addClass("active").siblings().removeClass("active");
+      // Плавное исчезновение текущего текста заголовка и содержимого
+      aboutTitle.animate({
+         opacity: 0
+      }, 300, function () {
+         aboutTitle.text(categoryName);
+         aboutTitle.animate({
+            opacity: 1
+         }, 300);
+      });
+
+      contentWrapper.animate({
+         opacity: 0
+      }, 300, function () {
+         // $(".categories-item").removeClass("active");
+         contentWrapper.html(categoryContent);
+         contentWrapper.animate({
+            opacity: 1
+         }, 300);
+      });
+   });
 });

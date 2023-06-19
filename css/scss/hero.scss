@@ -147,7 +147,7 @@ section {
    top: 15%;
    left: 5%;
    height: 70vh;
-   width: 90vw;
+   width: 85vw;
    z-index: 10;
    background-color: transparent;
    border: none;
@@ -155,14 +155,11 @@ section {
 }
 
 .about {
-   &.show {
-      display: block;
-      opacity: 1;
-      transition: opacity 1s;
-   }
 
    &__title {
       text-align: end;
+      text-transform: uppercase;
+      letter-spacing: 10px;
    }
 
    .categories {
@@ -170,6 +167,7 @@ section {
       border-right: 2.5px solid $white;
 
       &-list {
+         letter-spacing: 2.5px;
          list-style: none;
          text-transform: uppercase;
          gap: 15px
@@ -196,6 +194,16 @@ section {
          background-color: #888888;
          height: 50px; /* Высота ползунка */
       }
+   }
+
+   .categories-item {
+      transition: transform 0.6s ease;
+      transform-origin: center;
+   }
+   
+   .categories-item.active {
+      text-shadow: 5px 5px 5px black;
+      transform: translateX(-15%);
    }
 }
 
