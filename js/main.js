@@ -106,9 +106,9 @@ $(document).ready(function () {
          aboutTitle.animate({ opacity: 1 }, 300);
       });
 
-      contentWrapper.stop().animate({ opacity: 0 }, 300, function () {
+      contentWrapper.stop().slideUp(400, function () {
          contentWrapper.html(categoryContent);
-         contentWrapper.animate({ opacity: 1 }, 300);
+         contentWrapper.slideDown(800);
       });
    });
 });
