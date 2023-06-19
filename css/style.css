@@ -235,44 +235,44 @@ section {
   border: none;
 }
 
-.about__title {
+.practice__title {
   text-align: end;
   text-transform: uppercase;
   letter-spacing: 10px;
 }
-.about .categories {
+.practice .categories {
   height: 100%;
   border-right: 2.5px solid white;
 }
-.about .categories-list {
+.practice .categories-list {
   letter-spacing: 2.5px;
   list-style: none;
   text-transform: uppercase;
   gap: 15px;
 }
-.about .categories-item {
+.practice .categories-item {
   text-align: end;
 }
-.about .span-wrapper {
+.practice .span-wrapper {
   max-height: 55vh;
   overflow-y: scroll;
   /* Цвет скроллбара */
 }
-.about .span-wrapper::-webkit-scrollbar {
+.practice .span-wrapper::-webkit-scrollbar {
   width: 6px;
 }
-.about .span-wrapper::-webkit-scrollbar-track {
+.practice .span-wrapper::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.about .span-wrapper::-webkit-scrollbar-thumb {
+.practice .span-wrapper::-webkit-scrollbar-thumb {
   background-color: #888888;
   height: 50px; /* Высота ползунка */
 }
-.about .categories-item {
+.practice .categories-item {
   transition: transform 0.6s ease;
   transform-origin: center;
 }
-.about .categories-item.active {
+.practice .categories-item.active {
   text-shadow: 5px 5px 5px black;
   transform: translateX(-15%);
 }

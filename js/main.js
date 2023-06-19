@@ -63,6 +63,8 @@ $(document).ready(function () {
             $(this).hide();
          });
       }
+      // Проверка, выбрана ли категория ".contacts"
+      $(".contact-us").toggle(target !== ".contacts");
    });
 
    $(".main-page").click(function (event) {
@@ -94,16 +96,16 @@ $(document).ready(function () {
 
    $(".categories-item a").click(function (event) {
       event.preventDefault();
-      var aboutTitle = $(".about__title");
+      var practiceTitle = $(".practice__title");
       var contentWrapper = $(".span-wrapper");
       var categoryName = $(this).text(); // Получить текст названия категории
       var categoryContent = $(this).siblings("span").html(); // Получить содержимое categories-item
 
       $(this).parent().addClass("active").siblings().removeClass("active");
       // Плавное исчезновение текущего текста заголовка и содержимого
-      aboutTitle.stop().animate({ opacity: 0 }, 300, function () {
-         aboutTitle.text(categoryName);
-         aboutTitle.animate({ opacity: 1 }, 300);
+      practiceTitle.stop().animate({ opacity: 0 }, 300, function () {
+         practiceTitle.text(categoryName);
+         practiceTitle.animate({ opacity: 1 }, 300);
       });
 
       contentWrapper.stop().slideUp(400, function () {
