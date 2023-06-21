@@ -1,10 +1,10 @@
 html {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 body {
-    font-family: 'Crimson Pro', 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'Poiret One','Josefin Sans','Montserrat', 'Roboto', sans-serif;
+    font-size: 18px;
     letter-spacing: 1px;
     font-weight: 400;
     color: $white;
@@ -49,6 +49,6 @@ a {
 }
 
 @font-face {
-    font-family: ducine;
-    src: url(/fonts/Ducine.otf);
+    font-family: Ducine;
+    src: url(/fonts/Ducine.ttf);
 }

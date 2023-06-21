@@ -9,12 +9,12 @@
   }
 }
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
-  font-family: "Crimson Pro", "Roboto", sans-serif;
-  font-size: 16px;
+  font-family: "Poiret One", "Josefin Sans", "Montserrat", "Roboto", sans-serif;
+  font-size: 18px;
   letter-spacing: 1px;
   font-weight: 400;
   color: white;
@@ -59,8 +59,8 @@ a:hover {
 }
 
 @font-face {
-  font-family: ducine;
-  src: url(/fonts/Ducine.otf);
+  font-family: Ducine;
+  src: url(/fonts/Ducine.ttf);
 }
 .header {
   position: absolute;
@@ -68,7 +68,7 @@ a:hover {
   top: 0;
   left: auto;
   right: auto;
-  max-height: 125px;
+  max-height: 150px;
   height: 100%;
   border-bottom: 2.5px solid white;
   border-right: 2.5px solid white;
@@ -186,7 +186,7 @@ a:hover {
 .navbar .column-link:before {
   content: "";
   position: absolute;
-  top: 40%;
+  top: 42%;
   left: 0;
   width: 0%;
   height: 15%;
