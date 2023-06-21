@@ -22,21 +22,14 @@
    }
 
    &__btn {
+      pointer-events: auto;
       position: absolute;
       padding: 30px 0px;
       right: -100%;
+      z-index: 11;
       display: none;
       justify-content: center;
       align-items: center;
-
-      &:not(:last-child) {
-         top: 0;
-      }
-
-      &:last-child {
-         bottom: 0;
-         right: -100%;
-      }
 
       &.animate-in {
          opacity: 1;
@@ -53,6 +46,29 @@
       }
    }
 
+   .main-page {
+      top: 0;
+   }
+
+   .about-us {
+      display: none;
+      max-height: 110px;
+      position: absolute;
+      z-index: 11;
+      padding: 0;
+      flex-direction: column-reverse;
+      top: calc($position + 15px);
+      left: 6%;
+      &>img {
+         transform: rotateZ(-90deg);
+      }
+   }
+
+   .contact-us {
+      bottom: 0;
+      right: -100%;
+   }
+
    .column {
       display: flex;
       justify-content: center;
@@ -60,7 +76,7 @@
       height: 100vh;
       width: 100%;
       flex: 1;
-      transition: all 1.5s;
+      transition: all 1.5s ease-out;
       will-change: transition;
 
       &-link {
@@ -117,7 +133,7 @@
 
       &.open {
          flex: 10;
-         transform: scale(4);
+         transform: scale(2.5);
          background-color: linear-gradient(to right, white, transparent, white);
          border: 1px solid $white;
 
@@ -156,18 +172,27 @@ section {
 .about {}
 
 .practice {
+   font-family: 'Ducine';
+   font-size: 28px;
+   line-height: 25px;
+   letter-spacing: 2px;
+
+   & .row {
+      height: 100%;
+   }
 
    &__title {
       text-align: end;
       text-transform: uppercase;
+      font-size: 106px;
       letter-spacing: 10px;
    }
 
    .categories {
       height: 100%;
-      border-right: 2.5px solid $white;
 
       &-list {
+         border-right: 2.5px solid $white;
          letter-spacing: 2.5px;
          list-style: none;
          text-transform: uppercase;
@@ -176,6 +201,10 @@ section {
 
       &-item {
          text-align: end;
+
+         & a {
+            letter-spacing: 5px;
+         }
       }
    }
 
@@ -205,7 +234,7 @@ section {
    }
 
    .categories-item.active {
-      text-shadow: 5px 5px 5px black;
+      text-shadow: 5px 5px 15px black;
       transform: translateX(-15%);
    }
 }

@@ -17,7 +17,7 @@
    .navbar-contacts {
       text-align: center;
       word-break: break-all;
-      width: 50%;
+      // width: 50%;
    }
    .navbar-logo__img {
       border-radius: 50%;
@@ -25,6 +25,10 @@
       height: 100%;
       width: 100%;
       font-size: 64px;
+   }
+
+   .logo-title {
+      text-transform: uppercase;
    }
 
    .social-links {

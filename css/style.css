@@ -81,7 +81,6 @@ a:hover {
 .header .navbar-contacts {
   text-align: center;
   word-break: break-all;
-  width: 50%;
 }
 .header .navbar-logo__img {
   border-radius: 50%;
@@ -89,6 +88,9 @@ a:hover {
   height: 100%;
   width: 100%;
   font-size: 64px;
+}
+.header .logo-title {
+  text-transform: uppercase;
 }
 .header .social-links {
   font-size: 24px;
@@ -125,19 +127,14 @@ a:hover {
   display: flex;
 }
 .navbar__btn {
+  pointer-events: auto;
   position: absolute;
   padding: 30px 0px;
   right: -100%;
+  z-index: 11;
   display: none;
   justify-content: center;
   align-items: center;
-}
-.navbar__btn:not(:last-child) {
-  top: 0;
-}
-.navbar__btn:last-child {
-  bottom: 0;
-  right: -100%;
 }
 .navbar__btn.animate-in {
   opacity: 1;
@@ -150,6 +147,26 @@ a:hover {
 .navbar__btn .bi-caret-left {
   font-size: 48px;
 }
+.navbar .main-page {
+  top: 0;
+}
+.navbar .about-us {
+  display: none;
+  max-height: 110px;
+  position: absolute;
+  z-index: 11;
+  padding: 0;
+  flex-direction: column-reverse;
+  top: calc(var(--position) + 15px);
+  left: 6%;
+}
+.navbar .about-us > img {
+  transform: rotateZ(-90deg);
+}
+.navbar .contact-us {
+  bottom: 0;
+  right: -100%;
+}
 .navbar .column {
   display: flex;
   justify-content: center;
@@ -157,7 +174,7 @@ a:hover {
   height: 100vh;
   width: 100%;
   flex: 1;
-  transition: all 1.5s;
+  transition: all 1.5s ease-out;
   will-change: transition;
 }
 .navbar .column-link {
@@ -206,7 +223,7 @@ a:hover {
 }
 .navbar .column.open {
   flex: 10;
-  transform: scale(4);
+  transform: scale(2.5);
   background-color: linear-gradient(to right, white, transparent, white);
   border: 1px solid white;
 }
@@ -235,16 +252,26 @@ section {
   border: none;
 }
 
+.practice {
+  font-family: "Ducine";
+  font-size: 28px;
+  line-height: 25px;
+  letter-spacing: 2px;
+}
+.practice .row {
+  height: 100%;
+}
 .practice__title {
   text-align: end;
   text-transform: uppercase;
+  font-size: 106px;
   letter-spacing: 10px;
 }
 .practice .categories {
   height: 100%;
-  border-right: 2.5px solid white;
 }
 .practice .categories-list {
+  border-right: 2.5px solid white;
   letter-spacing: 2.5px;
   list-style: none;
   text-transform: uppercase;
@@ -252,6 +279,9 @@ section {
 }
 .practice .categories-item {
   text-align: end;
+}
+.practice .categories-item a {
+  letter-spacing: 5px;
 }
 .practice .content-wrapper {
   max-height: 55vh;
@@ -274,7 +304,7 @@ section {
   transform-origin: center;
 }
 .practice .categories-item.active {
-  text-shadow: 5px 5px 5px black;
+  text-shadow: 5px 5px 15px black;
   transform: translateX(-15%);
 }
 
