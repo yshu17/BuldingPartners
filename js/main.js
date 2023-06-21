@@ -1,14 +1,17 @@
 $(document).ready(function () {
-   const column = $('.column:nth-child(1)');
+   const firstColumn = $('.column:nth-child(1)');
    const header = $('.header');
    const navbarBtns = $('.navbar__btn');
+   const aboutBtn = $('.about-us');
    const section = $('.section');
 
    function resizer() {
       $(window).on('resize', function () {
          if ($(window).width() > 998) {
-            const columnWidth = column.outerWidth();
+            const columnWidth = firstColumn.outerWidth();
             header.width(columnWidth - 1);
+            var pos = `${header.height()}px`
+            $('.about-us').css('--position', pos);
          } else {
             header.css('width', '');
          }
@@ -24,19 +27,21 @@ $(document).ready(function () {
    }
 
    $(".column-link").click(function (event) {
-      event.preventDefault();
       var clickedColumn = $(this).closest(".column");
+      var target = clickedColumn.data("target");
+
+      event.preventDefault();
       clickedColumn.toggleClass("open");
       $(".column").not(clickedColumn).removeClass("open");
 
       if (clickedColumn.hasClass("open")) {
          navbarBtns.show().stop().animate({ right: '0%' }, 1000);
-         navbarBtns.css('display', 'flex');
          $(".column").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
-
-         var target = clickedColumn.data("target");
-
+         
+         if (target !== ".about") {
+            aboutBtn.slideDown(1000);
+         }
          switch (target) {
             case ".about":
                showSection('.about');
@@ -72,6 +77,9 @@ $(document).ready(function () {
 
       $(".column").removeClass("open").removeClass("hidden");
       navbarBtns.stop().animate({ right: '-100%' }, 2000, function () {
+         $(this).hide();
+      });
+      aboutBtn.slideUp(1000, function () {
          $(this).hide();
       });
       section.stop().animate({ opacity: 0 }, 500, function () {
