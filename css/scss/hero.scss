@@ -9,7 +9,7 @@
    width: 100%;
    background-size: cover;
    background-position: center;
-   filter: brightness(.75);
+   filter: brightness(.65);
 }
 
 .navbar {
@@ -59,6 +59,7 @@
       flex-direction: column-reverse;
       top: calc($position + 15px);
       left: 6%;
+
       &>img {
          transform: rotateZ(-90deg);
       }
@@ -110,7 +111,7 @@
             left: 0;
             width: 0%;
             height: 15%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(black, 0.8);
             transition: all .6s;
             z-index: -1;
          }
@@ -170,7 +171,36 @@ section {
 }
 
 .about {
+   width: 100vw;
    height: 100vh;
+   left: auto;
+
+   &__inner {
+      height: 100%;
+   }
+
+   .categories {
+      font-family: 'Ducine';
+      font-size: 28px;
+      border-right: 2.5px solid $white;
+
+      &-list {
+         width: calc($position - 1rem);
+         height: 100%;
+         list-style: none;
+
+      }
+
+      &-item {
+         width: 95%;
+         padding: 20px 0;
+         border-bottom: 2.5px solid $white;
+
+         &:hover {
+            background-color: rgba(black, 0.8);
+         }
+      }
+   }
 }
 
 .practice {
@@ -179,7 +209,7 @@ section {
    line-height: 25px;
    letter-spacing: 2px;
 
-   & .row {
+   &__inner {
       height: 100%;
    }
 

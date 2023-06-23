@@ -1,23 +1,22 @@
 $(document).ready(function () {
    const firstColumn = $('.column:nth-child(1)');
    const header = $('.header');
+   const firstAboutColumn = $('.about .categories-list');
    const navbarBtns = $('.navbar__btn');
    const aboutBtn = $('.about-us');
    const section = $('.section');
 
-   function resizer() {
-      $(window).on('resize', function () {
-         if ($(window).width() > 998) {
-            const columnWidth = firstColumn.outerWidth();
-            header.width(columnWidth - 1);
-            var pos = `${header.height()}px`
-            $('.about-us').css('--position', pos);
-         } else {
-            header.css('width', '');
-         }
-      }).trigger('resize');
-   }
-   resizer();
+   $(window).on('resize', function () {
+      if ($(window).width() > 998) {
+         const columnWidth = firstColumn.outerWidth();
+         header.width(columnWidth - 1);
+         var pos = `${header.height()}px`
+         $('.about-us').css('--position', pos);
+         firstAboutColumn.css('--position', (header.outerWidth() - 2) + 'px');
+      } else {
+         header.css('width', '');
+      }
+   }).trigger('resize');
 
    function showSection(sectionClass) {
       section.removeClass('active').stop().animate({ opacity: 0 }, 300, function () {
@@ -38,7 +37,7 @@ $(document).ready(function () {
          navbarBtns.show().stop().animate({ right: '0%' }, 1000);
          $(".column").not(clickedColumn).addClass("hidden");
          clickedColumn.removeClass("hidden");
-         
+
          if (target !== ".about") {
             aboutBtn.slideDown(1000);
          }
@@ -102,7 +101,7 @@ $(document).ready(function () {
       }
    );
 
-   $(".categories-item a").click(function (event) {
+   $(".practice .categories-item a").click(function (event) {
       event.preventDefault();
       var practiceTitle = $(".practice__title");
       var contentWrapper = $(".content-wrapper");

@@ -115,7 +115,7 @@ a:hover {
   width: 100%;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.75);
+  filter: brightness(0.65);
 }
 
 .navbar {
@@ -253,7 +253,30 @@ section {
 }
 
 .about {
+  width: 100vw;
   height: 100vh;
+  left: auto;
+}
+.about__inner {
+  height: 100%;
+}
+.about .categories {
+  font-family: "Ducine";
+  font-size: 28px;
+  border-right: 2.5px solid white;
+}
+.about .categories-list {
+  width: calc(var(--position) - 1rem);
+  height: 100%;
+  list-style: none;
+}
+.about .categories-item {
+  width: 95%;
+  padding: 20px 0;
+  border-bottom: 2.5px solid white;
+}
+.about .categories-item:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .practice {
@@ -262,7 +285,7 @@ section {
   line-height: 25px;
   letter-spacing: 2px;
 }
-.practice .row {
+.practice__inner {
   height: 100%;
 }
 .practice__title {
